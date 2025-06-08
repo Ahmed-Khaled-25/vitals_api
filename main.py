@@ -83,7 +83,7 @@ async def reead_root():
 @app.post("/Ai/receive_ai_text", dependencies=[Depends(api_key_auth)])
 async def receive_ai_text(text_data: dict):
     #print(f"Response from simple endpoint: {response_explicit.json()}")
-
+    print(text_data)
     return {"message": f"Received text (simple): {text_data}"}
 
 
