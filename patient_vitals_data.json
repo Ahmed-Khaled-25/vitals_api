@@ -1,6 +1,16 @@
 {
 
 
+    "ECG_state"    : [{"ecg1_state":"Not Connected"}],
+
+    
+    "ECG_reading"  : [{"ecg1_reading":"Normal"}],
+    
+
+    "beat_per_min" : [{"bpm":"85"}],
+
+
+
 
     "patient_info" : [ {     
             "patient_frist_name": " Adham " ,
@@ -8,6 +18,10 @@
             "patient_age"       : " 32 ",
             "patient_gender"    : " Male "}
         ],
+
+
+
+
 
     "patient_vitals":[{
         "day_1" : [
