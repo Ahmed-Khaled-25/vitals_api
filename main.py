@@ -84,7 +84,7 @@ async def reead_root():
 async def receive_ai_text(text_data: dict):
     #print(f"Response from simple endpoint: {response_explicit.json()}")
     print(text_data)
-    return {"message": f"Received text (simple): {text_data}"}
+    return {"AI_response": "MY AI root Works"}
 
 
 
