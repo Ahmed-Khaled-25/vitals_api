@@ -81,7 +81,7 @@ async def reead_root():
 
 
 @app.post("/Ai/receive_ai_text", dependencies=[Depends(api_key_auth)])
-async def receive_ai_text(text_data: dict):
+async def receive_ai_text(text_data: str):
     #print(f"Response from simple endpoint: {response_explicit.json()}")
     response = groooooq.get_groq_response(text_data)
     return {"AI_response": response}
