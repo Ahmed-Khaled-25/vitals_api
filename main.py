@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 import json
-
+import groooooq
 
 
 
@@ -83,18 +83,34 @@ async def reead_root():
 @app.post("/Ai/receive_ai_text", dependencies=[Depends(api_key_auth)])
 async def receive_ai_text(text_data: dict):
     #print(f"Response from simple endpoint: {response_explicit.json()}")
-    print(text_data)
-    return {"AI_response": "MY AI root Works"}
+    response = groooooq.get_groq_response(text_data)
+    return {"AI_response": response}
 
 
 
 ###############################################################################
 
 #Reciving data from arduino throw PC
-@app.post("/post_test", dependencies=[Depends(api_key_auth)])
-async def receive_data(data: dict):
-    print(data)
-    return {f"data"}
+@app.post("/post_temp", dependencies=[Depends(api_key_auth)])
+async def receive_data(readings: dict):
+    print(readings['temp_hw'])
+    data['patient_vitals'][0]['day_1'][0]['hour_1'][2]['body_temprature'] = readings['temp_hw']
+    json.dumps(data)
+    print(data['patient_vitals'][0]['day_1'][0]['hour_1'][2]['body_temprature'])
+    return {f"done"}
+
+@app.post("/post_o2", dependencies=[Depends(api_key_auth)])
+async def receive_data(readings: dict):
+    print(readings['o2_level'])
+    data['patient_vitals'][0]['day_1'][0]['hour_1'][2]['blood_o2_level'] = readings['o2_level']
+    json.dumps(data)
+    print(data['patient_vitals'][0]['day_1'][0]['hour_1'][2]['blood_o2_level'])
+    return {f"done"}
+
+
+
+
+
 
 
 
