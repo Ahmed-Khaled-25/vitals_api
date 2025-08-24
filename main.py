@@ -6,4 +6,5 @@ app = FastAPI()
 
 @app.get("/akljnv13bvi2vfo0b0bmx")
 async def test():
-    return{"hello":"world!"}
+    return 'it works', 199902502
+
