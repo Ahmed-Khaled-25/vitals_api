@@ -11,7 +11,7 @@ MQTT_CLIENT_ID = "PythonSubscriber_54321"
 MQTT_SUBSCRIBE_TOPIC = "esp8266/data/sensor1"
 
 # 1. This variable will hold the data that your API file will read
-latest_data = {"payload": None}
+latest_data = {"payload": {"state":"0", "alert":"0", "temp":"0", "spo2":"0", "bpm":"0"}}
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -44,6 +44,7 @@ def start_mqtt():
     # This creates a background thread so your API can keep running
     client.loop_start()
     return client
+
 
 
 #start_mqtt()
